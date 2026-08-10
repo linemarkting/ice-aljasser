@@ -11,7 +11,7 @@
   <meta property="og:description" content="أفضل مصنع ثلج في الكويت، توريد ثلج للمناسبات، أكياس ثلج، خدمة سريعة واحترافية." />
   <meta name="keywords" content="مصنع ثلج الكويت, مصنع ثلج في الكويت, توريد ثلج للمطاعم, توريد ثلج للفنادق, توصيل أكياس ثلج, شركة توريد ثلج, مصنع ثلج للتوريد, ثلج للمناسبات" />
   
-  <!-- Google tag (gtag.js) - تم إضافة الكود المطلوب -->
+  <!-- Google tag (gtag.js) - أكواد التتبع الجديدة -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17942485570"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,13 +19,23 @@
     gtag('js', new Date());
     gtag('config', 'AW-17942485570');
   </script>
+
   <!-- Event snippet for ثلج الجسار conversion page -->
   <script>
-    gtag('event', 'conversion', {
-        'send_to': 'AW-17942485570/owoUCP-9o98cEMK00utC',
-        'value': 1.0,
-        'currency': 'USD'
-    });
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17942485570/owoUCP-9o98cEMK00utC',
+          'value': 1.0,
+          'currency': 'USD',
+          'event_callback': callback
+      });
+      return false;
+    }
   </script>
   
   <!-- Font & Icons -->
@@ -291,11 +301,15 @@
     .seo-schema {
       display: none;
     }
+    /* تحسين زر الاتصال مع حدث التحويل */
+    .call-btn-conversion {
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <!-- Floating Call Button (عائم) -->
-  <a href="tel:+96550403115" class="float-btn" aria-label="اتصل بنا 50403115">
+  <!-- Floating Call Button (عائم) - مع إضافة حدث التحويل عند النقر -->
+  <a href="tel:+96550403115" class="float-btn" aria-label="اتصل بنا 50403115" onclick="return gtag_report_conversion('tel:+96550403115');">
     <i class="fas fa-phone-alt"></i>
   </a>
 
@@ -363,9 +377,12 @@
       </div>
     </div>
 
-    <!-- info + phone -->
+    <!-- info + phone - إضافة حدث التحويل للنقر على رقم الهاتف -->
     <div class="info-block">
-      <div class="item"><i class="fas fa-phone-alt"></i> <span>للطلب: <strong style="font-size: 1.3rem;">50403115</strong></span></div>
+      <div class="item" onclick="return gtag_report_conversion('tel:+96550403115');" style="cursor: pointer;">
+        <i class="fas fa-phone-alt"></i> 
+        <span>للطلب: <strong style="font-size: 1.3rem;">50403115</strong></span>
+      </div>
       <div class="item"><i class="fas fa-map-pin"></i> <span>مصنع ثلج الكويت – خدمة سريعة</span></div>
       <div class="item"><i class="fas fa-snowflake"></i> <span>ثلج غذائي عالي النقاء</span></div>
     </div>
@@ -382,7 +399,7 @@
       <span>ثلج للمناسبات</span>
     </div>
 
-    <!-- extra description -->
+    <!-- extra description - إضافة حدث التحويل لزر الاتصال -->
     <div style="background: #ffffffb8; border-radius: 30px; padding: 1.5rem 1.8rem; border: 1px solid #bdd8e9;">
       <h3 style="color: #003153; margin-bottom: 0.5rem; display: flex; gap: 10px;"><i class="fas fa-check-circle" style="color: #008000;"></i> لماذا تختار مصنع ثلج الكويت؟</h3>
       <ul style="list-style: none; display: flex; flex-wrap: wrap; gap: 0.8rem 2rem; margin-top: 0.8rem;">
@@ -392,7 +409,7 @@
         <li><i class="fas fa-check" style="color: #1f7a5a;"></i> خدمة عملاء على مدار الساعة</li>
         <li><i class="fas fa-check" style="color: #1f7a5a;"></i> توريد للمطاعم والفنادق والمناسبات</li>
       </ul>
-      <div style="margin-top: 1.2rem; font-size: 1.1rem; background: #cbe1ef; padding: 0.7rem 1.5rem; border-radius: 60px; display: inline-block;">
+      <div style="margin-top: 1.2rem; font-size: 1.1rem; background: #cbe1ef; padding: 0.7rem 1.5rem; border-radius: 60px; display: inline-block; cursor: pointer;" onclick="return gtag_report_conversion('tel:+96550403115');">
         <i class="fas fa-phone" style="margin-left: 10px;"></i> اتصل الآن: <span style="font-weight: 800; font-size: 1.4rem; color: #003153;">50403115</span>
       </div>
     </div>
@@ -401,7 +418,8 @@
     <div class="footer">
       <p><i class="fas fa-copyright"></i> 2026 مصنع ثلج الكويت – توريد ثلج للمطاعم و الفنادق و المناسبات</p>
       <p style="margin-top: 0.4rem;">
-        <i class="fas fa-phone"></i> <span class="highlight-phone">50403115</span> 
+        <i class="fas fa-phone"></i> 
+        <span class="highlight-phone" style="cursor: pointer;" onclick="return gtag_report_conversion('tel:+96550403115');">50403115</span> 
         <i class="fas fa-map-marker-alt" style="margin-right: 12px;"></i> الكويت
       </p>
       <p style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.6rem;">
@@ -415,8 +433,8 @@
     (function() {
       // تحسين تجربة المستخدم: رسالة ترحيب خفيفة
       console.log('مصنع ثلج الكويت – توريد ثلج للمطاعم والفنادق والمناسبات');
-      // يمكن إضافة أي تفاعل إضافي مستقبلاً
-      // مثال: تغيير لون زر الاتصال بشكل بسيط
+      
+      // تغيير لون زر الاتصال بشكل بسيط
       const floatBtn = document.querySelector('.float-btn');
       if (floatBtn) {
         floatBtn.addEventListener('mouseenter', function() {
@@ -427,7 +445,7 @@
         });
       }
 
-      // إضافة تأثير اهتزاز خفيف لأيقونة الثلج (اختياري)
+      // إضافة تأثير اهتزاز خفيف لأيقونة الثلج
       const heroIcon = document.querySelector('.hero-image i');
       if (heroIcon) {
         setInterval(() => {
